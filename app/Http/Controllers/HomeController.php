@@ -23,6 +23,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $user = auth()->user()->load('role');
+
+        if ($user->hasRole('admin')) {
+            return redirect()->route('admin.dashboard');
+        } elseif ($user->hasRole('student')) {
+            return redirect()->route('students.index');
+        }
+
         return view('home');
     }
 }
