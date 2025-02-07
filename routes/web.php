@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
-use Illuminate\Support\Facades\Auth; // Add this line
+use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Auth;
 
 // Redirect root URL to login page
 Route::get('/', function () {
@@ -14,7 +15,7 @@ Auth::routes();
 
 // Admin Routes
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::resource('students', StudentController::class);
 });
 
@@ -23,5 +24,5 @@ Route::middleware(['auth', 'role:student'])->group(function () {
     Route::get('/students', [StudentController::class, 'index'])->name('students.index');
 });
 
-// Home Route
+// Home Route (Default Laravel Home)
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
