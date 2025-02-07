@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
+use Illuminate\Support\Facades\Auth; // Add this line
 
 // Redirect root URL to login page
 Route::get('/', function () {
