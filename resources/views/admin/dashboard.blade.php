@@ -27,6 +27,12 @@
         #sidebar .sidebar-header {
             padding: 20px;
             background: #6d7fcc;
+            text-align: center;
+        }
+
+        #sidebar .sidebar-header img {
+            max-width: 100%;
+            height: auto;
         }
 
         #sidebar ul.components {
@@ -64,7 +70,7 @@
     <div class="wrapper">
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Admin Dashboard</h3>
+                <img src="{{ asset('images/images.jpeg') }}" alt="Logo">
             </div>
             <ul class="list-unstyled components">
                 <li>
